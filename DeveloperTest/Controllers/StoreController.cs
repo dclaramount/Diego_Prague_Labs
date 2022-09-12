@@ -173,7 +173,7 @@ namespace DeveloperTest.Controllers
         /// Updates the Status of Invoice
         /// </summary>
         /// <param name="invoiceId">Invoice Id that for which the status needs to be updated</param>
-        /// <param name="newStatus">New Status that wants to be applied in to the requested Invoice</param>
+        /// <param name="newStatus">New Status that wants to be applied in to the requested Invoice ("Paid" or "Unpaid")</param>
         /// <response code="204">Update was Succesfull</response>
         /// <response code="400">Values provided as new Status is not an accepted value.</response>
         /// <response code="404">Item requested was not Found in the Data Base.</response>
