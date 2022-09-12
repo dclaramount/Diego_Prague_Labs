@@ -22,6 +22,7 @@ namespace DeveloperTest.Controllers
             _storeRepository = storeRepository ?? throw new ArgumentNullException(nameof(storeRepository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
 
+
         }
 
         /// <summary>
@@ -204,20 +205,22 @@ namespace DeveloperTest.Controllers
             return NoContent();
         }
         /// <summary>
-        /// End Point to Edits any field within an Invoice
+        /// End Point to Edit General Fields (User Account and Invoice Related Fields NOT Invoice Lines or Items)
         /// </summary>
         /// <param name="invoiceId">Invoice Id that for which we want to edit</param>
         /// <param name="patchDocument">Pre-structured JSON that provides the schema of updates</param>
         /// <response code="204">Update was Succesfull</response>
         /// <response code="400">Values provided as the requested new ones are not accepted in the model.</response>
-        /// <response code="404">Item requested was not Found in the Data Base.</response>
+        /// <response code="404">Invoice requested was not Found in the Data Base.</response>
         /// <response code="500">Internal Server Error while updating the Invoice.</response>
         [HttpPatch("updateInvoice/{invoiceId}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> PartiallyUpdatePointOfInterest(int invoiceId, JsonPatchDocument<InvoiceWithDetailsAndUserAccountForUpdateDto> patchDocument)
+        public async Task<ActionResult> PartiallyUpdateInvoice(int invoiceId, JsonPatchDocument<InvoiceWithDetailsAndUserAccountForUpdateDto> patchDocument)
         {
+            if (patchDocument.Operations.Where(o => o.path.Contains("invoiceLines") || o.path.Contains("item")).ToList().Count() > 0)
+                return BadRequest("You are using the wrong End Point to update this field, please refer to API documentation. You should be using updateLineInvoice/{lineInvoiceId}");
             if (!await _storeRepository.InvoiceExist(invoiceId))
             {
                 return NotFound();
@@ -242,6 +245,50 @@ namespace DeveloperTest.Controllers
             }
 
             _mapper.Map(invoiceToPatch, invoiceEntity);
+            await _storeRepository.SaveChangesAsync();
+            return NoContent();
+        }
+
+
+        /// <summary>
+        /// End Point to Edit Invoice Lines and their Items under it
+        /// </summary>
+        /// <param name="lineInvoiceId">Invoice Line Id that for which we want to edit</param>
+        /// <param name="patchDocument">Pre-structured JSON that provides the schema of updates</param>
+        /// <response code="204">Update was Succesfull</response>
+        /// <response code="400">Values provided as the requested new ones are not accepted in the model.</response>
+        /// <response code="404">Invoice Line requested was not Found in the Data Base.</response>
+        /// <response code="500">Internal Server Error while updating the Invoice.</response>
+        [HttpPatch("updateInvoiceLine/{lineInvoiceId}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult> PartiallyUpdateInvoiceLines(int lineInvoiceId, JsonPatchDocument<InvoiceLineForUpdateDto> patchDocument)
+        {
+            if (!await _storeRepository.InvoiceLineExist(lineInvoiceId))
+            {
+                return NotFound();
+            }
+            var invoiceLineEntity = await _storeRepository.GetInvoiceLineAsync(lineInvoiceId);
+            if (invoiceLineEntity == null)
+            {
+                return NotFound();
+            }
+            var invoiceLineToPatch = _mapper.Map<InvoiceLineForUpdateDto>(invoiceLineEntity);
+
+            patchDocument.ApplyTo(invoiceLineToPatch, ModelState);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (!TryValidateModel(invoiceLineToPatch))
+            {
+                return BadRequest(ModelState);
+            }
+
+            _mapper.Map(invoiceLineToPatch, invoiceLineEntity);
             await _storeRepository.SaveChangesAsync();
             return NoContent();
         }

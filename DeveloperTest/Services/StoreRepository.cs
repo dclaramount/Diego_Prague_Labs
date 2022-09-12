@@ -52,7 +52,9 @@ namespace DeveloperTest.Services
                                         .Include("UserAccount")
                                         .Include("UserAccount.UserType")
                                         .Include("InvoiceLines")
-                                        .Include("InvoiceLines.Item").FirstOrDefaultAsync();
+                                        .Include("InvoiceLines.Item")
+                                        .FirstOrDefaultAsync()
+                                        ;
         }
         /// <summary>
         /// Returns an Specific User Account by User Account Id
@@ -121,7 +123,7 @@ namespace DeveloperTest.Services
         /// <returns></returns>
         public async Task<bool> ItemExist(int itemId)
         {
-            return await _context.UserAccount.AnyAsync(it => it.Id == itemId);
+            return await _context.Item.AnyAsync(it => it.Id == itemId);
         }
 
         /// <summary>
