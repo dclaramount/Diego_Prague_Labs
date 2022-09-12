@@ -3,9 +3,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.DeveloperTest PreferredExecutionTarget="/Applications/Firefox.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DeveloperTest/Controllers/StoreController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DeveloperTest/Models/InvoiceLineForUpdateDto.cs">
     <Files>
-      <File FileName="DeveloperTest/Controllers/AuthenticationController.cs" Line="106" Column="2" />
       <File FileName="DeveloperTest/Controllers/StoreController.cs" Line="246" Column="1" />
       <File FileName="DeveloperTest/DbContexts/StoreContext.cs" Line="106" Column="13" />
       <File FileName="DeveloperTest/Services/StoreRepository.cs" Line="134" Column="1" />
@@ -13,19 +12,13 @@
       <File FileName="DeveloperTest/Entities/UserAccount.cs" Line="1" Column="1" />
       <File FileName="DeveloperTest/Entities/UserType.cs" Line="1" Column="1" />
       <File FileName="DeveloperTest/Entities/InvoiceLine.cs" Line="1" Column="1" />
+      <File FileName="DeveloperTest/Models/InvoiceLineForUpdateDto.cs" Line="21" Column="1" />
+      <File FileName="DeveloperTest/Models/InvoiceWithDetailsAndUserAccountForUpdateDto.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="DeveloperTest" expanded="True">
-            <Node name="DeveloperTest" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="DbContexts" expanded="True" />
-              <Node name="Entities" expanded="True" />
-              <Node name="Services" expanded="True" />
-              <Node name="appsettings.json" expanded="True" />
-            </Node>
-          </Node>
+          <Node name="DeveloperTest" expanded="True" selected="True" />
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
@@ -37,6 +30,8 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/dclaramount/Projects/Prague_Labs/Diego_Prague_Labs/DeveloperTest/Controllers/StoreController.cs" relfile="DeveloperTest/Controllers/StoreController.cs" line="221" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

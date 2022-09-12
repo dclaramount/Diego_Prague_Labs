@@ -7,10 +7,6 @@ namespace DeveloperTest.Models
     public class InvoiceLineDto
     {
         /// <summary>
-        /// Invoice Line Id
-        /// </summary>
-        public int Id { get; set; }
-        /// <summary>
         /// Number of Items billed in the Invoice Line
         /// </summary>
         public int Quantity { get; set; }

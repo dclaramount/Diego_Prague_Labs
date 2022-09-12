@@ -4,10 +4,6 @@ namespace DeveloperTest.Models
     public class UserAccountDto
     {
         /// <summary>
-        /// Id of User Account
-        /// </summary>
-        public int Id { get; set; }
-        /// <summary>
         /// First Name
         /// </summary>
         public string FirstName { get; set; }
