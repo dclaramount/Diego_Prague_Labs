@@ -3,7 +3,7 @@ namespace DeveloperTest.Models
 {
     public class InvoiceLineForUpdateDto
     {
-        /// <summary>
+        /// <summary> T
         /// Number of Items billed in the Invoice Line
         /// </summary>
         public int Quantity { get; set; }
