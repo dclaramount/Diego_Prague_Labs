@@ -29,9 +29,10 @@
 /Users/dclaramount/Projects/Prague_Labs/dotnet-testing-assignment-main/DeveloperTest/obj/Debug/net6.0/DeveloperTest.pdb
 /Users/dclaramount/Projects/Prague_Labs/dotnet-testing-assignment-main/DeveloperTest/obj/Debug/net6.0/DeveloperTest.genruntimeconfig.cache
 /Users/dclaramount/Projects/Prague_Labs/dotnet-testing-assignment-main/DeveloperTest/obj/Debug/net6.0/ref/DeveloperTest.dll
-/Users/dclaramount/Projects/Prague_Labs/Diego_Prague_Labs/DeveloperTest/bin/Debug/net6.0/appsettings.json
 /Users/dclaramount/Projects/Prague_Labs/Diego_Prague_Labs/DeveloperTest/bin/Debug/net6.0/appsettings.Development.json
+/Users/dclaramount/Projects/Prague_Labs/Diego_Prague_Labs/DeveloperTest/bin/Debug/net6.0/appsettings.json
 /Users/dclaramount/Projects/Prague_Labs/Diego_Prague_Labs/DeveloperTest/bin/Debug/net6.0/DeveloperTest
+/Users/dclaramount/Projects/Prague_Labs/Diego_Prague_Labs/DeveloperTest/bin/Debug/net6.0/DeveloperTest.xml
 /Users/dclaramount/Projects/Prague_Labs/Diego_Prague_Labs/DeveloperTest/bin/Debug/net6.0/DeveloperTest.deps.json
 /Users/dclaramount/Projects/Prague_Labs/Diego_Prague_Labs/DeveloperTest/bin/Debug/net6.0/DeveloperTest.runtimeconfig.json
 /Users/dclaramount/Projects/Prague_Labs/Diego_Prague_Labs/DeveloperTest/bin/Debug/net6.0/DeveloperTest.dll
