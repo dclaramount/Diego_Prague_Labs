@@ -9,6 +9,10 @@ namespace DeveloperTest.Models
     public class InvoiceWithDetailsAndUserAccountDto
     {
         /// <summary>
+        /// The id of an Invoice
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// The Payment Status of an Invoice
         /// </summary>
         public string Status { get; set; }

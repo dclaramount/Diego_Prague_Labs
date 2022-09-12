@@ -7,6 +7,10 @@ namespace DeveloperTest.Models
     public class ItemDto
     {
         /// <summary>
+        /// The id of an Item
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// Description of the Item (Including unit of Measure)
         /// </summary>
         public string? Description { get; set; }
